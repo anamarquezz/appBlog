@@ -28,10 +28,16 @@ npm install -g @angular/cli@14.0.4
     https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 
-IMPORTANT COMMANDS FOR ANGULAR
 
-1. CREATE NRE APP:
+
+________________________________________________________________________________
+|--------------------- IMPORTANT COMMANDS FOR ANGULAR ---------------------    |
+
+1. CREATE NEW APP:
     ng new BlogLab-UI --skip-git --skip-tests --skip-install
 2. RUN APP:
     ng serve
 3. 
+
+
+|______________________________________________________________________________|

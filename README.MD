@@ -24,7 +24,8 @@ npm install -g @angular/cli@14.0.4
 
 3. install Extension Angular,
 4. g serve, for runn
-
+5. visual studio gitignore
+    https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 
 IMPORTANT COMMANDS FOR ANGULAR
@@ -33,3 +34,4 @@ IMPORTANT COMMANDS FOR ANGULAR
     ng new BlogLab-UI --skip-git --skip-tests --skip-install
 2. RUN APP:
     ng serve
+3. 

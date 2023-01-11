@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "vkLiriPh+KeKG8uxxHA2CF5HL/f4oLCzFsS4qsmM3owox6Ej0QpCJ0MPr4RgaDnNyuKhkmlZBUUrHyrcnLEczg==",
+  "dgSpecHash": "JvjCPW9ycjbeQuxBv/nsZEb1eTLZ3sxu8YNkUO4mRgYymfnYB8rbqEfezYOpuTxGsjmfREAXCbwBscvM70iS4g==",
   "success": true,
-  "projectFilePath": "C:\\sources\\02 Learning\\githuba\\appBlog\\BlogLab\\BlogLab.web\\BlogLab.web.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.web\\BlogLab.web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\amarque\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\amarque\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.13\\microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\amarque\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.13\\microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\amarque\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.13\\microsoft.netcore.app.host.win-x64.6.0.13.nupkg.sha512"
+  ],
   "logs": []
 }

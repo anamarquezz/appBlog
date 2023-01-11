@@ -1,5 +1,8 @@
-
-
+1. Create a data base 
+    > CREATE DATABASE BlogDB;
+2. Use that DB
+    > USE BlogDB;
+3.
 /* CREATING THE  TABLES: */
 CREATE TABLE ApplicationUser (
 	ApplicationUserId INT NOT NULL IDENTITY(1, 1),

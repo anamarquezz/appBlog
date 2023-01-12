@@ -345,7 +345,7 @@ CREATE PROCEDURE [dbo].[Blog_Upsert]
 		
 
 /******* Using Recursion - using cte*************/
-CREATE PROCEDURE[dbo].[logComment_Delete]
+CREATE PROCEDURE[dbo].[BlogComment_Delete]
 	@BlogCommentId INT
 	AS
 		DROP TABLE IF EXISTS #BlogCommentsToBeDeleted;

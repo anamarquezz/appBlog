@@ -10,7 +10,7 @@ namespace BlogLab.Repository
     public interface IBlogRepository
     {
         public Task<Blog> UpsertAsync(BlogCreate blogcreate, int applicationUserId);
-        public Task<PageResults<Blog>> GetAllAsunc(BlogPaging blogPaging);
+        public Task<PageResults<Blog>> GetAllAsync(BlogPaging blogPaging);
 
         public Task<Blog> GetAsync(int blogId);
         public Task<List<Blog>> GetAllByUserIdAsync(int applicationUserId);

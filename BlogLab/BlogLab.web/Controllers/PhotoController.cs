@@ -94,7 +94,7 @@ namespace BlogLab.web.Controllers
                 }
             }
 
-            return BadRequest("Photo does not exist.")
+            return BadRequest("Photo does not exist.");
         }
     }
 

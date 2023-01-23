@@ -17,8 +17,8 @@ namespace BlogLab.Models.Blog
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Content is required")]
-        [MinLength(30, ErrorMessage = "Can be 10-300 characters")]
-        [MaxLength(300,ErrorMessage = "Can be 10-300 characters")]
+        [MinLength(10, ErrorMessage = "Can be 10-300 characters")]
+        [MaxLength(30000,ErrorMessage = "Can be 10-30000 characters")]
         public string Content { get; set; }
         public int? PhotoId { get; set; }
 

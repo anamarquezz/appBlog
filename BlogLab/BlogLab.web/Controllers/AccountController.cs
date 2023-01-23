@@ -1,9 +1,13 @@
-﻿using BlogLab.Models.Account;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BlogLab.Models.Account;
 using BlogLab.Services;
-using CloudinaryDotNet;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace BlogLab.web.Controllers
 {
@@ -67,8 +71,9 @@ namespace BlogLab.web.Controllers
                     ApplicationUser applicationUser = new ApplicationUser()
                     {
                         ApplicationUserId = applicationUserIdentity.ApplicationUserId,
-                        Username = applicationUserIdentity.Email,
+                        Username = applicationUserIdentity.Username,
                         Fullname = applicationUserIdentity.Fullname,
+                        Email = applicationUserIdentity.Email,
                         Token = _tokenService.CreateToken(applicationUserIdentity)
                     };
                     return Ok(applicationUser);

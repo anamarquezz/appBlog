@@ -21,7 +21,7 @@ namespace BlogLab.web.Controllers
         }
 
 
-        [Authorize]
+       // [Authorize]
         [HttpPost]
         public async Task<ActionResult<Blog>> Create(BlogCreate blogCreate)
         {

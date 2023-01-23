@@ -66,8 +66,8 @@ builder.Services.AddAuthentication(options =>
             };
         }
     );
-
-
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAuthorizationCore();
 // Add services to the container.
 builder.Services.AddRazorPages();
 

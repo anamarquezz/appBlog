@@ -16,17 +16,20 @@ namespace BlogLab.web.Controllers
 
         public BlogcommentController(IBlogCommentRepository blogCommentRepository)
         {
-            blogCommentRepository = _blogCommentRepository;
+            _blogCommentRepository = blogCommentRepository;
         }
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<BlogComment>> Create(BlogCommentCreate blogCommetCreate)
+        public async Task<ActionResult<BlogComment>> Create(BlogCommentCreate blogCommentCreate)
         {
             int applicationUserId = int.Parse(User.Claims.First(i => i.Type == JwtRegisteredClaimNames.NameId).Value);
-            var createdBlogComment = await _blogCommentRepository.UpsertAsync(blogCommetCreate, applicationUserId);
+
+            var createdBlogComment = await _blogCommentRepository.UpsertAsync(blogCommentCreate, applicationUserId);
+
             return Ok(createdBlogComment);
         }
+
 
         [HttpGet("{blogId}")]
         public async Task<ActionResult<List<BlogComment>>> GetAll(int blogId)

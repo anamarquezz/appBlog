@@ -15,13 +15,13 @@ namespace BlogLab.Repository
 {
     public class BlogCommentRepository : IBlogCommentRepository
     {
-
         private readonly IConfiguration _config;
 
         public BlogCommentRepository(IConfiguration config)
         {
             _config = config;
         }
+
         public async Task<int> DeleteAsync(int blogCommentId)
         {
             int affectedRows = 0;
@@ -32,7 +32,7 @@ namespace BlogLab.Repository
 
                 affectedRows = await connection.ExecuteAsync(
                     "BlogComment_Delete",
-                    new { blogCommentId = blogCommentId },
+                    new { BlogCommentId = blogCommentId },
                     commandType: CommandType.StoredProcedure);
             }
 
@@ -48,8 +48,8 @@ namespace BlogLab.Repository
                 await connection.OpenAsync();
 
                 blogComments = await connection.QueryAsync<BlogComment>(
-                "Blog_GetAll",
-                    new { BlogId = blogId},
+                    "BlogComment_GetAll",
+                    new { BlogId = blogId },
                     commandType: CommandType.StoredProcedure);
             }
 
@@ -59,25 +59,26 @@ namespace BlogLab.Repository
         public async Task<BlogComment> GetAsync(int blogCommentId)
         {
             BlogComment blogComment;
+
             using (var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
             {
                 await connection.OpenAsync();
 
                 blogComment = await connection.QueryFirstOrDefaultAsync<BlogComment>(
-                    "Photo_Get",
-                    new { blogCommentId = blogCommentId },
+                    "BlogComment_Get",
+                    new { BlogCommentId = blogCommentId },
                     commandType: CommandType.StoredProcedure);
             }
+
             return blogComment;
         }
 
         public async Task<BlogComment> UpsertAsync(BlogCommentCreate blogCommentCreate, int applicationUserId)
         {
-
             var dataTable = new DataTable();
-            dataTable.Columns.Add("BlogCommentId", typeof(string));
-            dataTable.Columns.Add("ParentBlogCommentId", typeof(string));
-            dataTable.Columns.Add("BlogId", typeof(string));
+            dataTable.Columns.Add("BlogCommentId", typeof(int));
+            dataTable.Columns.Add("ParentBlogCommentId", typeof(int));
+            dataTable.Columns.Add("BlogId", typeof(int));
             dataTable.Columns.Add("Content", typeof(string));
 
             dataTable.Rows.Add(
@@ -97,7 +98,7 @@ namespace BlogLab.Repository
                     new
                     {
                         BlogComment = dataTable.AsTableValuedParameter("dbo.BlogCommentType"),
-                        applicationUserId = applicationUserId
+                        ApplicationUserId = applicationUserId
                     },
                     commandType: CommandType.StoredProcedure);
             }
@@ -107,7 +108,6 @@ namespace BlogLab.Repository
             BlogComment blogComment = await GetAsync(newBlogCommentId.Value);
 
             return blogComment;
-
         }
     }
 }

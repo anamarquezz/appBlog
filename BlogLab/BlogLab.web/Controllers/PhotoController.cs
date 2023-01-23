@@ -24,7 +24,7 @@ namespace BlogLab.web.Controllers
         {
             _photoRespository = photoRepository;
             _blogRepository = blogRepository;
-            photoService = _photoService;
+            _photoService = photoService;
         }
 
         //http://localhost:5000/api/Photo [Photo] token
@@ -59,7 +59,7 @@ namespace BlogLab.web.Controllers
             return Ok(photos);
         }
 
-        [HttpGet("photoId")]
+        [HttpGet("{photoId}")]
         public async Task<ActionResult<Photo>> Get(int photoId)
         {
             var photo = await _photoRespository.GetAsync(photoId);

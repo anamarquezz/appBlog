@@ -386,7 +386,7 @@ CREATE PROCEDURE[dbo].[BlogComment_Delete]
 
   
 
-CREATE PROCEDURE [dbo].[BlogComment_Get]
+CREATE [dbo].[BlogComment_Get]
 	@BlogCommentId INT
 	AS
 	SELECT 
@@ -400,10 +400,10 @@ CREATE PROCEDURE [dbo].[BlogComment_Get]
 		,t1.[UpdateDate]
 		,t1.[ActiveInd]
 	FROM 
-		[agregate].[BlogComment] t1
+		[aggregate].[BlogComment] t1
 	WHERE
 		t1.[BlogCommentId] = @BlogCommentId AND
-		t2.[ActiveInd] = CONVERT(BIT, 1)
+		t1.[ActiveInd] = CONVERT(BIT, 1)
 
 
 
@@ -422,10 +422,10 @@ CREATE PROCEDURE [dbo].[BlogComment_GetAll]
 		,t1.[UpdateDate]
 		,t1.[ActiveInd]
 	FROM 
-		[agregate].[BlogComment] t1
+		[aggregate].[BlogComment] t1
 	WHERE
 		t1.[BlogId] = @BlogId AND
-		t2.[ActiveInd] = CONVERT(BIT, 1)
+		t1.[ActiveInd] = CONVERT(BIT, 1)
 	ORDER BY
 		t1.[UpdateDate]
 	DESC
@@ -514,22 +514,23 @@ CREATE PROCEDURE [dbo].[Photo_GetByUserId]
 CREATE PROCEDURE [dbo].[Photo_Insert]
 	@Photo PhotoType READONLY,
 	@ApplicationUserId INT
-	AS
-	INSERT INTO 
-			[dbo].[Photo]
+AS
+
+	INSERT INTO [dbo].[Photo]
            ([ApplicationUserId]
            ,[PublicId]
            ,[ImageUrl]
-           ,[Description] )        
-	SELECT		
+           ,[Description])
+	SELECT 
 		@ApplicationUserId,
 		[PublicId],
 		[ImageUrl],
 		[Description]
 	FROM
-		@photo
+		@Photo;
 
 	SELECT CAST(SCOPE_IDENTITY() AS INT);
+GO
    
 
 

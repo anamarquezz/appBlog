@@ -33,7 +33,7 @@ namespace BlogLab.web.Controllers
 
                 if (photo.ApplicationUserId != applicationUserId)
                 {
-                    return BadRequest("You did not uoload the photo");
+                    return BadRequest("You did not upload the photo");
                 }
             }
 

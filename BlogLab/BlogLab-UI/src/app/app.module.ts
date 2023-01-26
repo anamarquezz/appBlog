@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BsDropdownConfig, BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { ToastrModule } from 'ngx-toastr'
@@ -58,7 +60,9 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
       positionClass:'toast-bottom-right'
     }),
     BsDropdownModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     HttpClient,

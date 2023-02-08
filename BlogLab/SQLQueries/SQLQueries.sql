@@ -386,7 +386,7 @@ CREATE PROCEDURE[dbo].[BlogComment_Delete]
 
   
 
-CREATE [dbo].[BlogComment_Get]
+CREATE PROCEDURE [dbo].[BlogComment_Get]
 	@BlogCommentId INT
 	AS
 	SELECT 

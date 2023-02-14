@@ -16,15 +16,15 @@ export class BlogCommentService {
   ) { }
 
     create(model: BlogCommentCreate): Observable<BlogComment>{
-      return this.http.post<BlogComment>(`${environment.webapi}/BlogComment/register`, model);
+      return this.http.post<BlogComment>(`${environment.webApi}/BlogComment/register`, model);
     }
 
     delete(blogCommentId: number) : Observable<number> {
-      return this.http.delete<number>(`${environment.webapi}/BlogComment/${blogCommentId}`);
+      return this.http.delete<number>(`${environment.webApi}/BlogComment/${blogCommentId}`);
     }
 
     getAll(blogId: number): Observable<BlogComment[]>{
-      return this.http.get<BlogComment[]>(`${environment.webapi}/Blogcomment/$(blogId)`);  
+      return this.http.get<BlogComment[]>(`${environment.webApi}/Blogcomment/$(blogId)`);  
     }
   }
 

@@ -14,19 +14,19 @@ export class PhotoService {
   ) { }
 
   create(model: FormData): Observable<Photo>{
-    return this.http.post<Photo>(`${environment.webapi}/Photo`, model);
+    return this.http.post<Photo>(`${environment.webApi}/Photo`, model);
     
   }
   getByApplicationuserId(): Observable<Photo[]>{
-    return this.http.get<Photo[]>(`${environment.webapi}/Photo`);
+    return this.http.get<Photo[]>(`${environment.webApi}/Photo`);
 
   }
 
   get(photoId: number): Observable<Photo>{
-    return this.http.get<Photo>(`${environment.webapi}/Photo/${photoId}`);
+    return this.http.get<Photo>(`${environment.webApi}/Photo/${photoId}`);
   }
   
   delete(photoId: number): Observable<number>{
-    return this.http.delete<number>(`${environment.webapi}/Photo/${photoId}`);
+    return this.http.delete<number>(`${environment.webApi}/Photo/${photoId}`);
   }
 }

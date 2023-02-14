@@ -2466,11 +2466,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.web\\BlogLab.web.csproj",
+      "projectUniqueName": "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.web\\BlogLab.web.csproj",
       "projectName": "BlogLab.web",
-      "projectPath": "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.web\\BlogLab.web.csproj",
+      "projectPath": "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.web\\BlogLab.web.csproj",
       "packagesPath": "C:\\Users\\amarque\\.nuget\\packages\\",
-      "outputPath": "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.web\\obj\\",
+      "outputPath": "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\amarque\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2480,23 +2480,24 @@
         "net7.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://artifactory.trimble.tools/artifactory/api/nuget/v3/TrimbleAg-NuGet": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.Identity\\BlogLab.Identity.csproj": {
-              "projectPath": "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.Identity\\BlogLab.Identity.csproj"
+            "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.Identity\\BlogLab.Identity.csproj": {
+              "projectPath": "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.Identity\\BlogLab.Identity.csproj"
             },
-            "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.Models\\BlogLab.Models.csproj": {
-              "projectPath": "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.Models\\BlogLab.Models.csproj"
+            "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.Models\\BlogLab.Models.csproj": {
+              "projectPath": "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.Models\\BlogLab.Models.csproj"
             },
-            "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.Repository\\BlogLab.Repository.csproj": {
-              "projectPath": "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.Repository\\BlogLab.Repository.csproj"
+            "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.Repository\\BlogLab.Repository.csproj": {
+              "projectPath": "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.Repository\\BlogLab.Repository.csproj"
             },
-            "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.Servces\\BlogLab.Services.csproj": {
-              "projectPath": "C:\\sources\\GitHub\\appBlog\\BlogLab\\BlogLab.Servces\\BlogLab.Services.csproj"
+            "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.Servces\\BlogLab.Services.csproj": {
+              "projectPath": "C:\\Learning\\Angular&NETCORE7\\appBlog\\BlogLab\\BlogLab.Servces\\BlogLab.Services.csproj"
             }
           }
         }

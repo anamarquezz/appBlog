@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
-import { AccountService } from 'src/app/services/account.service';
-import { BlogService } from 'src/app/services/blog.service';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Blog } from 'src/app/models/blog/blog.model';
+import { AccountService } from 'src/app/services/account.service';
+import { BlogService } from 'src/app/services/blog.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,8 +13,9 @@ import { Blog } from 'src/app/models/blog/blog.model';
 export class DashboardComponent implements OnInit {
 
   userBlogs: Blog[];
+
   constructor(
-    private blogServices: BlogService,
+    private blogService: BlogService,
     private router: Router,
     private toastr: ToastrService,
     private accountService: AccountService
@@ -21,44 +23,46 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.userBlogs = [];
+
     let currentApplicationUserId = this.accountService.currentUserValue.applicationUserId;
 
-    this.blogServices.getByApplicationUserId(currentApplicationUserId).subscribe(userBlogs => {    
-        this.userBlogs =userBlogs;      
+    this.blogService.getByApplicationUserId(currentApplicationUserId).subscribe(userBlogs => {
+      this.userBlogs = userBlogs;
     });
   }
 
-  confirmDelete(blog: Blog){
-    blog.deleteConfirm = true;    
+  confirmDelete(blog: Blog) {
+    blog.deleteConfirm = true;
   }
 
-  cancelDeleteConfirm(blog: Blog){
+  cancelDeleteConfirm(blog: Blog) {
     blog.deleteConfirm = false;
   }
-  deleteConfirm(blog: Blog, blogs: Blog[]) {
-    this.blogServices.delete(blog.blogId).subscribe( () => {
+
+  deleteConfirmed(blog: Blog, blogs: Blog[]) {
+    this.blogService.delete(blog.blogId).subscribe(() => {
+
       let index = 0;
 
-      for( let i=0; i>blogs.length;i++){
-        if(blog[i].blogId == blog.blogId){
+      for (let i=0; i<blogs.length; i++) {
+        if (blogs[i].blogId === blog.blogId) {
           index = i;
         }
       }
 
-      if(index > -1){
-        blogs.splice(index,1);
+      if (index > -1) {
+        blogs.splice(index, 1);
       }
 
-      this.toastr.info("Blog deleted");
-    })
+      this.toastr.info("Blog deleted.");
+    });
   }
 
-  editBlog(blogId: number){
-    this.router.navigate([`/dashboard/${blogId}`])
+  editBlog(blogId: number) {
+    this.router.navigate([`/dashboard/${blogId}`]);
   }
 
   createBlog() {
     this.router.navigate(['/dashboard/-1']);
   }
-
 }

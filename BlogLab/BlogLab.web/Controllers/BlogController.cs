@@ -57,7 +57,7 @@ namespace BlogLab.web.Controllers
             return Ok(blog);
         }
 
-        [HttpGet("user/{applicatioinId}")]
+        [HttpGet("user/{applicationUserId}")]
         public async Task<ActionResult<List<Blog>>> GetByApplicationUserId(int applicationUserId)
         {
             var blogs = await _blogRepository.GetAllByUserIdAsync(applicationUserId);

@@ -57,7 +57,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot({
-      positionClass:'toast-bottom-right'
+      positionClass: 'toast-bottom-right'
     }),
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),

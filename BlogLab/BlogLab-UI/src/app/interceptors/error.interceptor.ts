@@ -16,78 +16,82 @@ import { Router } from '@angular/router';
 export class ErrorInterceptor implements HttpInterceptor {
 
   constructor(
-    private toaster: ToastrService,
+    private toastr: ToastrService,
     private router: Router,
-    private accountService: AccountService    
+    private accountService: AccountService
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError(error => {
-        if(error){
-          switch(error.status){
+        if (error) {
+          switch(error.status) {
             case 400:
               this.handle400Error(error);
-              break;
+            break;
             case 401:
               this.handle401Error(error);
-              break;
+            break;
             case 500:
               this.handle500Error(error);
-              break;
+            break;
             default:
-              this.handleUnexpedtedError(error);
-              break;
+              this.handleUnexpectedError(error);
+              break; 
           }
         }
+
         return throwError(error);
       })
     );
   }
 
-  handle400Error(error: any){
-    if (!!error.error && Array.isArray(error.error)){ //if that is an array
-      let errorMessage ='';
-      for (const key in error.error){
-        if(!!error.error[key]){
-        const errorElement = error.error[key];
-        errorMessage = (`${errorMessage}${errorElement.code} - ${errorElement.description}\n`)
+  handle400Error(error: any) {
+    if (!!error.error && Array.isArray(error.error)) {
+      let errorMessage = '';
+      for (const key in error.error) {
+        if (!!error.error[key]) {
+          const errorElement = error.error[key];
+          errorMessage = (`${errorMessage}${errorElement.code} - ${errorElement.description}\n`);
+        }
       }
-      }
-      this.toaster.error(errorMessage, error.statusText);
+      this.toastr.error(errorMessage, error.statusText);
       console.log(error.error);
-    }else if(!!error?.error?.errors?.content && (typeof error.error.errors.Content) === 'object'){
+    } else if (!!error?.error?.errors?.Content && (typeof error.error.errors.Content) === 'object') {
       let errorObject = error.error.errors.Content;
       let errorMessage = '';
       for (const key in errorObject) {
         const errorElement = errorObject[key];
-        errorMessage = (`${errorMessage}${errorElement}\n`)
+        errorMessage = (`${errorMessage}${errorElement}\n`);
       }
-      this.toaster.error(errorMessage, error.statusCode);
+      this.toastr.error(errorMessage, error.statusCode);
       console.log(error.error);
-    }else if(!!error.error){
-      let errorMessage = ((typeof error.error) == 'string') ? error.error : 'There was a validation error';
-      this.toaster.error(errorMessage, error.statusCode);
+    } else if (!!error.error) {
+      let errorMessage = ((typeof error.error) === 'string')
+        ? error.error
+        : 'There was a validation error.';
+      this.toastr.error(errorMessage, error.statusCode);
       console.log(error.error);
-    }else{
-      this.toaster.error(error.statusText, error.status);
+    } else {
+      this.toastr.error(error.statusText, error.status);
       console.log(error);
-    }    
+    }
   }
-  handle401Error(error: any){
-    let errorMessage = 'please login to your account.';
+
+  handle401Error(error: any) {
+    let errorMessage = 'Please login to your account.';
     this.accountService.logout();
-    this.toaster.error(errorMessage, error.statusText);
-    //route to the login page
+    this.toastr.error(errorMessage, error.statusText);
     this.router.navigate(['/login']);
   }
-  handle500Error(error: any){
-    let errorMessage = "Please constact the Administrator. An error happend in the server.";
-    this.accountService.logout()
+
+  handle500Error(error: any) {
+    this.toastr.error('Please contact the administrator. An error happened in the server.');
     console.log(error);
   }
-  handleUnexpedtedError(error: any){
-    this.toaster.error('Something unexpecte happend.')
+
+  handleUnexpectedError(error: any) {
+    this.toastr.error('Something unexpected happened.');
     console.log(error);
   }
 }

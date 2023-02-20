@@ -46,7 +46,7 @@ namespace BlogLab.Repository
 
                 photos = await connection.QueryAsync<Photo>(
                     "Photo_GetByUserId",
-                    new { applicationUserId = applicationUserId },
+                    new { ApplicationUserId = applicationUserId },
                     commandType: CommandType.StoredProcedure);
             }
             return photos.ToList();

@@ -5,6 +5,7 @@ import { BsDropdownConfig, BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { TypeaheadModule} from 'ngx-bootstrap/typeahead';
 
 import { ToastrModule } from 'ngx-toastr'
 import { AppRoutingModule } from './app-routing.module';
@@ -56,13 +57,15 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     }),
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
-    FormsModule,
-    ReactiveFormsModule
+    TypeaheadModule.forRoot()  
+
   ],
   providers: [
     HttpClient,

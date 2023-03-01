@@ -16,11 +16,9 @@ import { PhotoService } from 'src/app/services/photo.service';
 })
 export class BlogEditComponent implements OnInit {
 
-  
   blogForm: UntypedFormGroup;
   confirmImageDelete: boolean = false;
   userPhotos: Photo[] = [];
-description: any;
 
   constructor(
     private route: ActivatedRoute,

@@ -1,1 +1,30 @@
-<p>photo-album works!</p>
+<div class="container">
+    <div class="f-flex justify-content-center">
+        <h1 class="display-4 mt-5">Photo Album</h1>
+    </div>
+
+    <div class="mt-4" [ngClass]="{'photo-album-empty' : photos.length ===0}">
+        <ng-template [ngif]="photos.length > 0 " [ngIfElse]="nophotos">
+            <carousel [pauseOnFocus]="true">
+                <slide *ngFor="let photo of photos">
+                    <div class="photo-container">
+                        <img src="{{photo.imageUrl}}" class="slide-images">
+                    </div>
+                    <div class="carousel-caption mb-3">
+                        <h3>{{photo.description}}</h3>
+                        <button class="btn btn-danger mt-3" *ngif="!photo.deleteConfirm" (click)="confirmDelete(photo)">Delete Photo</button>
+                        <div class="delete-confirmation pl-2 pr-2 mt-3" *ngIf="!!photo.deleteConfirm">
+
+                        </div>
+                    </div>
+                </slide>
+
+            </carousel>
+        </ng-template>
+        <ng-template #noPhotos>
+            <div class="f-flex justify-content-center">
+                <h3 class="text-dark">You don't have any photos yet...</h3>
+            </div>
+        </ng-template>
+    </div>
+</div>
